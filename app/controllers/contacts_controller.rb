@@ -9,4 +9,13 @@ class ContactsController < ApplicationController
     }
   end
 
+  def contacts_all
+    contact_one = Contact.first
+    contact_two = Contact.find_by(first_name: "Mario")
+    render json: {
+      contact_one: contact_one.as_json, 
+      contact_two: contact_two.as_json
+    }
+  end
+
 end
